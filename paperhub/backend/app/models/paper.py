@@ -3,9 +3,10 @@ from sqlalchemy.sql import func
 from app.database import Base
 
 class Paper(Base):
-    __tablename__ = "papers"
+    __tablename__ = "paper_info"
     
-    paper_id = Column(Integer, primary_key=True, index=True)
+    id = Column(Integer, primary_key=True, index=True)
+    paper_id = Column(Integer, nullable=True)
     arxiv_id = Column(String(50), unique=True, index=True, nullable=False)
     title = Column(String(500), nullable=False)
     authors = Column(JSON, nullable=False)
@@ -15,7 +16,6 @@ class Paper(Base):
     categories = Column(JSON, nullable=False)
     primary_category = Column(String(50))
     pdf_url = Column(String(500))
-    pdf_path = Column(String(500))
     # keywords = Column(JSON, nullable=False)
     
     def __repr__(self):
@@ -23,6 +23,7 @@ class Paper(Base):
     
     def to_dict(self):
         return {
+            "id" : self.id,
             "paper_id": self.paper_id,
             "arxiv_id": self.arxiv_id,
             "title": self.title,
@@ -33,5 +34,4 @@ class Paper(Base):
             "categories": self.categories,
             "primary_category": self.primary_category,
             "pdf_url": self.pdf_url,
-            "pdf_path": self.pdf_path,
         }

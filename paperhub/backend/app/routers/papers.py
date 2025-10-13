@@ -72,9 +72,9 @@ def get_stats(db: Session = Depends(get_db)):
     # 카테고리별 통계
     category_stats = db.query(
         Paper.primary_category,
-        func.count(Paper.paper_id)
+        func.count(Paper.id)
     ).group_by(Paper.primary_category).order_by(
-        func.count(Paper.paper_id).desc()
+        func.count(Paper.id).desc()
     ).limit(10).all()
     
     # 최근 논문
@@ -91,10 +91,10 @@ def get_stats(db: Session = Depends(get_db)):
         "latest_published": latest_paper.published_date.isoformat() if latest_paper else None
     }
 
-@router.get("/{paper_id}")
-def get_paper(paper_id: int, db: Session = Depends(get_db)):
+@router.get("/{id}")
+def get_paper(id: int, db: Session = Depends(get_db)):
     """논문 ID로 특정 논문 조회"""
-    paper = db.query(Paper).filter(Paper.paper_id == paper_id).first()
+    paper = db.query(Paper).filter(Paper.id == id).first()
     
     if not paper:
         raise HTTPException(status_code=404, detail="Paper not found")

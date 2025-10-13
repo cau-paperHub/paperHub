@@ -74,17 +74,17 @@ def crawl_and_save_to_db(
                     updated_count += 1
                 else:
                     new_paper = Paper(
-                        arxiv_id=arxiv_id,
-                        title=paper_data['title'],
-                        authors=paper_data['authors'],
-                        abstract=paper_data['abstract'],
-                        published_date=published_date,
-                        updated_date=updated_date,
-                        categories=paper_data['categories'],
-                        primary_category=paper_data['primary_category'],
-                        pdf_url=paper_data['pdf_url'],
-                        pdf_path=paper_data.get('pdf_path')
-                    )
+                    arxiv_id=arxiv_id,
+                    title=paper_data['title'],
+                    authors=paper_data['authors'],
+                    abstract=paper_data['abstract'],
+                    published_date=published_date,
+                    updated_date=updated_date,
+                    categories=paper_data['categories'],
+                    primary_category=paper_data['primary_category'],
+                    pdf_url=paper_data['pdf_url'],
+                    paper_id=None
+                )
                     
                     db.add(new_paper)
                     saved_count += 1
@@ -95,7 +95,7 @@ def crawl_and_save_to_db(
                 continue
         
         db.commit()
-        print(f"✓ Saved: {saved_count}, Updated: {updated_count}, Skipped: {skipped_count}")
+        print(f"Saved: {saved_count}, Updated: {updated_count}, Skipped: {skipped_count}")
         return saved_count
     
     except Exception as e:
@@ -124,7 +124,7 @@ def crawl_multiple_keywords(keywords, max_results_per_keyword=30):
             print(f"Failed to process keyword '{keyword}': {e}")
         
         if i < len(keywords):
-            time.sleep(3)
+            time.sleep(10)
     
     print(f"\n{'='*60}")
     print(f"Total papers saved: {total_saved}")
@@ -132,16 +132,88 @@ def crawl_multiple_keywords(keywords, max_results_per_keyword=30):
     return total_saved
 
 if __name__ == "__main__":
-    keywords = [
-        "large language model",
-        "transformer",
-        "BERT",
-        "GPT",
-        "computer vision",
-        "reinforcement learning",
-        "deep learning",
-        "llama",
-        "recommendation"
-    ]
+    # keywords = [
+    #     "large language model",
+    #     "transformer",
+    #     "BERT",
+    #     "GPT",
+    #     "computer vision",
+    #     "reinforcement learning",
+    #     "deep learning",
+    #     "llama",
+    #     "recommendation"
+    # ]
     
-    crawl_multiple_keywords(keywords, max_results_per_keyword=50)
+    # crawl_multiple_keywords(keywords, max_results_per_keyword=50)
+    from app.database import init_db
+    import json
+    from pathlib import Path
+    
+    # 테이블 생성
+    init_db()
+    
+    # JSON 파일에서 데이터 읽기
+    json_path = Path("app/data/papers/papers_metadata.json")
+    
+    if json_path.exists():
+        print("기존 JSON 파일을 DB에 저장합니다...")
+        with open(json_path, 'r', encoding='utf-8') as f:
+            papers = json.load(f)
+        
+        db = SessionLocal()
+        saved_count = 0
+        skipped_count = 0
+        
+        try:
+            for paper_data in papers:
+                arxiv_id = paper_data['id']
+                
+                existing_paper = db.query(Paper).filter(
+                    Paper.arxiv_id == arxiv_id
+                ).first()
+                
+                if existing_paper:
+                    continue
+                
+                try:
+                    published_date = datetime.strptime(
+                        paper_data['published'], '%Y-%m-%d'
+                    ).date()
+                except (KeyError, ValueError):
+                    skipped_count += 1
+                    continue
+                
+                try:
+                    updated_date = datetime.strptime(
+                        paper_data['updated'], '%Y-%m-%d'
+                    ).date()
+                except (KeyError, ValueError):
+                    updated_date = published_date
+                
+                try:
+                    new_paper = Paper(
+                        arxiv_id=arxiv_id,
+                        title=paper_data['title'],
+                        authors=paper_data['authors'],
+                        abstract=paper_data['abstract'],
+                        published_date=published_date,
+                        updated_date=updated_date,
+                        categories=paper_data['categories'],
+                        primary_category=paper_data['primary_category'],
+                        pdf_url=paper_data['pdf_url'],
+                        paper_id=None
+                    )
+                    db.add(new_paper)
+                    saved_count += 1
+                
+                except Exception as e:
+                    print(f"Error: {e}")
+                    skipped_count += 1
+            
+            db.commit()
+            print(f"✓ Saved: {saved_count}, Skipped: {skipped_count}")
+        
+        finally:
+            db.close()
+    else:
+        print("JSON 파일을 찾을 수 없습니다!")
