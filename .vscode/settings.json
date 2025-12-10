@@ -1,0 +1,8 @@
+{
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "git.scanRepositories": [
+        "캡스톤_BE/paperHub_01",
+        "캡스톤_FE/paperHub"
+    ]
+}

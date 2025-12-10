@@ -1,0 +1,3311 @@
+{
+	"info": {
+		"_postman_id": "ad653f61-e66a-4d7b-86de-c7938988b07c",
+		"name": "paperHub",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "48916753",
+		"_collection_link": "https://paperhub.postman.co/workspace/paperHub-Workspace~887a61d6-aaf6-494a-8731-fb21549690d2/collection/39428962-ad653f61-e66a-4d7b-86de-c7938988b07c?action=share&source=collection_link&creator=48916753"
+	},
+	"item": [
+		{
+			"name": "회원가입",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"siyeon1\",\n    \"email\" : \"siyeon1@email.com\",\n    \"password\" : \"12345\",\n    \"nickname\" : \"sysy\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/auth/signup",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "로그인",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJzaXllb24xQGVtYWlsLmNvbSIsImV4cCI6MTc2MDA4NjI2MiwiaWF0IjoxNzYwMDc5MDYyfQ.iFq0IM1aApr74u9bt00TGdxmHbzhR4NOSzBrULzs4sM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\" : \"siyeon1@email.com\",\n    \"password\" : \"12345\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/auth/login",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "로그인",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" : \"siyeon1@email.com\",\n    \"password\" : \"12345\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/auth/login",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Authorization",
+							"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJzaXllb24xQGVtYWlsLmNvbSIsImV4cCI6MTc2MDA4ODgzMCwiaWF0IjoxNzYwMDgxNjMwfQ.fvQhKmuJ7xU36jrD1Ocjwj6z_RU8qFSq2VJiO6Ipn-o"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 10 Oct 2025 07:33:50 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "pdf 메타데이터 추출",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJzaXllb24yQGVtYWlsLmNvbSIsImV4cCI6MTc2MTc1NTYyNywiaWF0IjoxNzYxNzQ4NDI3fQ.1gHREmTHvFiNC5g1o7yYnnv7ENNQgL8fLMgABNxGm5E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/siyeon/Downloads/2311.09707v1.pdf"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/papers/register-from-url",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"papers",
+						"register-from-url"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "pdf 메타데이터 추출",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/Users/siyeon/Downloads/2509.23713v1.pdf"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/papers/register-from-url",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"papers",
+								"register-from-url"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 10 Oct 2025 07:33:12 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"paperId\": 1,\n        \"sha256\": \"813ea579ea75f1e6f600cfe6bbcd94619ced09f0ceebc4bd7000bcf12994867f\",\n        \"fingerprint\": null,\n        \"numPages\": 34,\n        \"pageSizes\": [\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            }\n        ]\n    },\n    \"error\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "pdf 보기",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJzaXllb24xQGVtYWlsLmNvbSIsImV4cCI6MTc2MDA4ODgzMCwiaWF0IjoxNzYwMDgxNjMwfQ.fvQhKmuJ7xU36jrD1Ocjwj6z_RU8qFSq2VJiO6Ipn-o",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/papers/:paperId",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"papers",
+						":paperId"
+					],
+					"variable": [
+						{
+							"key": "paperId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "pdf 보기",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/papers/:paperId",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"papers",
+								":paperId"
+							],
+							"variable": [
+								{
+									"key": "paperId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 10 Oct 2025 07:34:09 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"paperId\": 1,\n        \"sha256\": \"813ea579ea75f1e6f600cfe6bbcd94619ced09f0ceebc4bd7000bcf12994867f\",\n        \"fingerprint\": null,\n        \"numPages\": 34,\n        \"pageSizes\": [\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            }\n        ]\n    },\n    \"error\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "pdf fingerprint 추가하기",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJzaXllb24xQGVtYWlsLmNvbSIsImV4cCI6MTc2MDA4ODgzMCwiaWF0IjoxNzYwMDgxNjMwfQ.fvQhKmuJ7xU36jrD1Ocjwj6z_RU8qFSq2VJiO6Ipn-o",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"fingerprint\" : \"12345\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/papers/:paperId/fingerprint",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"papers",
+						":paperId",
+						"fingerprint"
+					],
+					"variable": [
+						{
+							"key": "paperId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "pdf fingerprint 추가하기",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fingerprint\" : \"12345\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/papers/:paperId/fingerprint",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"papers",
+								":paperId",
+								"fingerprint"
+							],
+							"variable": [
+								{
+									"key": "paperId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 10 Oct 2025 07:34:21 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"paperId\": 1,\n        \"sha256\": \"813ea579ea75f1e6f600cfe6bbcd94619ced09f0ceebc4bd7000bcf12994867f\",\n        \"fingerprint\": \"12345\",\n        \"numPages\": 34,\n        \"pageSizes\": [\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            }\n        ]\n    },\n    \"error\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "메타데이터 fingerprint/sha256으로 조회하기",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJzaXllb24xQGVtYWlsLmNvbSIsImV4cCI6MTc2MDA4ODgzMCwiaWF0IjoxNzYwMDgxNjMwfQ.fvQhKmuJ7xU36jrD1Ocjwj6z_RU8qFSq2VJiO6Ipn-o",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sha256\" : \"\",\n    \"fingerprint\" : \"12345\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/papers/lookup",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"papers",
+						"lookup"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "메타데이터 fingerprint/sha256으로 조회하기",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"sha256\" : \"\",\n    \"fingerprint\" : \"12345\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/papers/lookup",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"papers",
+								"lookup"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 10 Oct 2025 07:34:35 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"paperId\": 1,\n        \"sha256\": \"813ea579ea75f1e6f600cfe6bbcd94619ced09f0ceebc4bd7000bcf12994867f\",\n        \"fingerprint\": \"12345\",\n        \"numPages\": 34,\n        \"pageSizes\": [\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            },\n            {\n                \"h\": 792,\n                \"w\": 612\n            }\n        ]\n    },\n    \"error\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "하이라이트 하기",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJzaXllb24xQGVtYWlsLmNvbSIsImV4cCI6MTc2MDA4ODgzMCwiaWF0IjoxNzYwMDgxNjMwfQ.fvQhKmuJ7xU36jrD1Ocjwj6z_RU8qFSq2VJiO6Ipn-o",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"paperSha256\": \"813ea579ea75f1e6f600cfe6bbcd94619ced09f0ceebc4bd7000bcf12994867f\",\n  \"page\": 3,\n  \"rects\": [\n    { \"x\": 0.12, \"y\": 0.43, \"w\": 0.28, \"h\": 0.02 },\n    { \"x\": 0.12, \"y\": 0.45, \"w\": 0.31, \"h\": 0.02 }\n  ],\n  \"exact\": \"propose a scalable training pipeline for LLMs\",\n  \"prefix\": \"In this section, we \",\n  \"suffix\": \" that reduces memory footprint.\",\n  \"color\": \"#FFE066\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/highlights",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"highlights"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "하이라이트 하기",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"paperSha256\": \"813ea579ea75f1e6f600cfe6bbcd94619ced09f0ceebc4bd7000bcf12994867f\",\n  \"page\": 3,\n  \"rects\": [\n    { \"x\": 0.12, \"y\": 0.43, \"w\": 0.28, \"h\": 0.02 },\n    { \"x\": 0.12, \"y\": 0.45, \"w\": 0.31, \"h\": 0.02 }\n  ],\n  \"exact\": \"propose a scalable training pipeline for LLMs\",\n  \"prefix\": \"In this section, we \",\n  \"suffix\": \" that reduces memory footprint.\",\n  \"color\": \"#FFE066\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/highlights",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"highlights"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 10 Oct 2025 07:46:28 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"highlightId\": 1,\n        \"anchorId\": 1,\n        \"paperSha256\": \"813ea579ea75f1e6f600cfe6bbcd94619ced09f0ceebc4bd7000bcf12994867f\",\n        \"page\": 3,\n        \"color\": \"#FFE066\",\n        \"createdAt\": \"2025-10-10T16:46:28.095572+09:00\"\n    },\n    \"error\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "하이라이트 삭제",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJzaXllb24xQGVtYWlsLmNvbSIsImV4cCI6MTc1OTU4MDQ4NywiaWF0IjoxNzU5NTczMjg3fQ.GYnt4tqFOi2wgTIRI7fMn_yERQyEtE4g_CLdvmekHEQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/highlights/:id",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"highlights",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "메모 생성",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJzaXllb24xQGVtYWlsLmNvbSIsImV4cCI6MTc2MDA4ODgzMCwiaWF0IjoxNzYwMDgxNjMwfQ.fvQhKmuJ7xU36jrD1Ocjwj6z_RU8qFSq2VJiO6Ipn-o",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"anchorId\" : 1,\n    \"body\" : \"내용 체크 필요 없음\",\n    \"parentId\" : null\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/memos",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"memos"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "메모 생성",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"anchorId\" : 1,\n    \"body\" : \"내용 체크 필요 없음\",\n    \"parentId\" : null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/memos",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"memos"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 10 Oct 2025 07:46:53 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 1,\n        \"anchorId\": 1,\n        \"paperSha256\": \"813ea579ea75f1e6f600cfe6bbcd94619ced09f0ceebc4bd7000bcf12994867f\",\n        \"page\": 3,\n        \"body\": \"내용 체크 필요 없음\",\n        \"createdBy\": \"1\",\n        \"createdAt\": \"2025-10-10T16:46:53.249806+09:00\",\n        \"updatedAt\": \"2025-10-10T16:46:53.249815+09:00\",\n        \"parentId\": null\n    },\n    \"error\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "메모 수정",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJzaXllb24xQGVtYWlsLmNvbSIsImV4cCI6MTc2MDA4ODgzMCwiaWF0IjoxNzYwMDgxNjMwfQ.fvQhKmuJ7xU36jrD1Ocjwj6z_RU8qFSq2VJiO6Ipn-o",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \n    \"body\" : \"내용 체크 필요\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/memos/:id",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"memos",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "메모 삭제",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJzaXllb24xQGVtYWlsLmNvbSIsImV4cCI6MTc1OTU4MDQ4NywiaWF0IjoxNzU5NTczMjg3fQ.GYnt4tqFOi2wgTIRI7fMn_yERQyEtE4g_CLdvmekHEQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/memos/:id",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"memos",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "페이지 조회",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJzaXllb24xQGVtYWlsLmNvbSIsImV4cCI6MTc1OTU4MDQ4NywiaWF0IjoxNzU5NTczMjg3fQ.GYnt4tqFOi2wgTIRI7fMn_yERQyEtE4g_CLdvmekHEQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "sha256",
+							"value": "f01a49162b6e9c9e67ee49dfc6630c38bad76388a9b7e19d0916466f48957d34",
+							"type": "text"
+						},
+						{
+							"key": "page",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/page-annotations",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"page-annotations"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "페이지 조회",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "sha256",
+									"value": "813ea579ea75f1e6f600cfe6bbcd94619ced09f0ceebc4bd7000bcf12994867f",
+									"type": "text"
+								},
+								{
+									"key": "page",
+									"value": "3",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/page-annotations",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"page-annotations"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 10 Oct 2025 07:47:42 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"count\": 1,\n        \"items\": [\n            {\n                \"anchor\": {\n                    \"id\": 1,\n                    \"signature\": \"t:d036030f68d2822dc585045224ebaab369337cf568474f63e33403b58797f79c\",\n                    \"exact\": \"propose a scalable training pipeline for LLMs\",\n                    \"prefix\": \"In this section, we \",\n                    \"suffix\": \" that reduces memory footprint.\",\n                    \"rects\": [\n                        {\n                            \"x\": 0.12,\n                            \"y\": 0.43,\n                            \"w\": 0.28,\n                            \"h\": 0.02\n                        },\n                        {\n                            \"x\": 0.12,\n                            \"y\": 0.45,\n                            \"w\": 0.31,\n                            \"h\": 0.02\n                        }\n                    ]\n                },\n                \"highlights\": [\n                    {\n                        \"id\": 1,\n                        \"color\": \"#FFE066\",\n                        \"createdBy\": \"1\"\n                    }\n                ],\n                \"notes\": [\n                    {\n                        \"id\": 1,\n                        \"body\": \"내용 체크 필요 없음\",\n                        \"createdBy\": \"1\",\n                        \"createdAt\": \"2025-10-10T07:46:53.249806Z\",\n                        \"parentId\": null\n                    }\n                ]\n            }\n        ],\n        \"totalHighlights\": 1,\n        \"totalNotes\": 1,\n        \"totalAnnotations\": 2\n    },\n    \"error\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "컬렉션 추가하기",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJzaXllb24xQGVtYWlsLmNvbSIsImV4cCI6MTc2MDExMDQ3NCwiaWF0IjoxNzYwMTAzMjc0fQ.0qEbqwuQw1dlA6MAiUMnAlJarAyJOS8z1G2TSpyVhAE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"paperId\" : 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/collections/:status",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"collections",
+						":status"
+					],
+					"variable": [
+						{
+							"key": "status",
+							"value": "to-read"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"paperId\" : 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/collections/:status",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"collections",
+								":status"
+							],
+							"variable": [
+								{
+									"key": "status",
+									"value": "to-read"
+								}
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 10 Oct 2025 09:10:20 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"collectionPaperId\": 1,\n        \"paperId\": 1,\n        \"status\": \"TO_READ\",\n        \"lastOpenedAt\": \"2025-10-10T18:10:20.703778+09:00\",\n        \"addedAt\": \"2025-10-10T18:10:20.703781+09:00\",\n        \"updatedAt\": \"2025-10-10T18:10:20.703784+09:00\"\n    },\n    \"error\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "컬렉션에 있는 논문 상태 바꾸기",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJzaXllb24xQGVtYWlsLmNvbSIsImV4cCI6MTc2MDIwMjc0MCwiaWF0IjoxNzYwMTk1NTQwfQ.K4ZQMDyoaDkkMz8RLkm2cmMHf-5q-mY_oSVn8z3wUKI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/collection-items/:status/:id",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"collection-items",
+						":status",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "status",
+							"value": "in-progress"
+						},
+						{
+							"key": "id",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/collection-items/:status/:id",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"collection-items",
+								":status",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "status",
+									"value": "in-progress"
+								},
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 10 Oct 2025 09:46:32 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date",
+							"domain": "",
+							"path": ""
+						}
+					],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"collectionPaperId\": 1,\n        \"paperId\": 1,\n        \"status\": \"IN_PROGRESS\",\n        \"lastOpenedAt\": \"2025-10-10T09:10:20.703778Z\",\n        \"addedAt\": \"2025-10-10T09:10:20.703781Z\",\n        \"updatedAt\": \"2025-10-10T18:46:31.99885+09:00\"\n    },\n    \"error\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "컬렉션 다건 조회",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJzaXllb24xQGVtYWlsLmNvbSIsImV4cCI6MTc2MDExMDQ3NCwiaWF0IjoxNzYwMTAzMjc0fQ.0qEbqwuQw1dlA6MAiUMnAlJarAyJOS8z1G2TSpyVhAE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/collections/:status",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"collections",
+						":status"
+					],
+					"variable": [
+						{
+							"key": "status",
+							"value": "to-read"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "컬렉션 다건 조회",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/collections/:status",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"collections",
+								":status"
+							],
+							"variable": [
+								{
+									"key": "status",
+									"value": "in-progress"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Oct 2025 15:22:17 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"content\": [\n            {\n                \"id\": 3,\n                \"paperId\": 4,\n                \"status\": \"IN_PROGRESS\",\n                \"lastOpenedAt\": \"2025-10-11T15:21:03.892337Z\",\n                \"addedAt\": \"2025-10-11T15:21:03.892341Z\",\n                \"updatedAt\": \"2025-10-11T15:22:02.416867Z\",\n                \"title\": \"Attention Is All You Need\",\n                \"authors\": \"[\\\"Ashish Vaswani\\\", \\\"Noam Shazeer\\\", \\\"Niki Parmar\\\", \\\"Jakob Uszkoreit\\\"]\",\n                \"primaryCategory\": \"cs.CL\",\n                \"categories\": \"[\\\"cs.CL\\\", \\\"cs.LG\\\"]\",\n                \"arxivId\": \"1706.03762\",\n                \"pdfUrl\": \"https://arxiv.org/pdf/1706.03762\"\n            },\n            {\n                \"id\": 2,\n                \"paperId\": 1,\n                \"status\": \"IN_PROGRESS\",\n                \"lastOpenedAt\": \"2025-10-10T14:07:19.984051Z\",\n                \"addedAt\": \"2025-10-10T14:07:19.984056Z\",\n                \"updatedAt\": \"2025-10-10T14:09:42.533267Z\",\n                \"title\": \"Attention Is All You Need\",\n                \"authors\": \"[\\\"Ashish Vaswani\\\", \\\"Noam Shazeer\\\", \\\"Niki Parmar\\\", \\\"Jakob Uszkoreit\\\"]\",\n                \"primaryCategory\": \"cs.CL\",\n                \"categories\": \"[\\\"cs.CL\\\", \\\"cs.LG\\\"]\",\n                \"arxivId\": \"1706.03763\",\n                \"pdfUrl\": \"https://arxiv.org/pdf/1706.03762\"\n            }\n        ],\n        \"page\": 0,\n        \"size\": 20,\n        \"totalElements\": 2,\n        \"totalPages\": 1,\n        \"last\": true\n    },\n    \"error\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "컬렉션 단건 조회",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJzaXllb24xQGVtYWlsLmNvbSIsImV4cCI6MTc2MDExMDQ3NCwiaWF0IjoxNzYwMTAzMjc0fQ.0qEbqwuQw1dlA6MAiUMnAlJarAyJOS8z1G2TSpyVhAE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/collection-items/:id",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"collection-items",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/collection-items/:id",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"collection-items",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 10 Oct 2025 13:51:37 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 1,\n        \"paperId\": 1,\n        \"status\": \"TO_READ\",\n        \"lastOpenedAt\": \"2025-10-10T09:10:20.703778Z\",\n        \"addedAt\": \"2025-10-10T09:10:20.703781Z\",\n        \"updatedAt\": \"2025-10-10T09:10:20.703784Z\"\n    },\n    \"error\": null\n}"
+				},
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/collection-items/:id",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"collection-items",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Oct 2025 15:36:17 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 3,\n        \"paperId\": 4,\n        \"status\": \"IN_PROGRESS\",\n        \"lastOpenedAt\": \"2025-10-11T15:21:03.892337Z\",\n        \"addedAt\": \"2025-10-11T15:21:03.892341Z\",\n        \"updatedAt\": \"2025-10-11T15:22:02.416867Z\",\n        \"title\": \"Attention Is All You Need\",\n        \"arxivId\": \"1706.03762\",\n        \"abstractText\": \"We propose the Transformer, a new simple network architecture...\",\n        \"primaryCategory\": \"cs.CL\",\n        \"pdfUrl\": \"https://arxiv.org/pdf/1706.03762\",\n        \"authorsJson\": \"[\\\"Ashish Vaswani\\\", \\\"Noam Shazeer\\\", \\\"Niki Parmar\\\", \\\"Jakob Uszkoreit\\\"]\",\n        \"categoriesJson\": \"[\\\"cs.CL\\\", \\\"cs.LG\\\"]\",\n        \"publishedDate\": \"2017-06-01\"\n    },\n    \"error\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "컬렉션 안에 있는 논문 삭제",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJzaXllb24xQGVtYWlsLmNvbSIsImV4cCI6MTc2MDExMDQ3NCwiaWF0IjoxNzYwMTAzMjc0fQ.0qEbqwuQw1dlA6MAiUMnAlJarAyJOS8z1G2TSpyVhAE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/collection-items/:id",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"collection-items",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/collection-items/:id",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"collection-items",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 10 Oct 2025 14:06:03 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 1\n    },\n    \"error\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "컬렉션 내의 논문 개수 보여주기",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJzaXllb24xQGVtYWlsLmNvbSIsImV4cCI6MTc2MDExMDQ3NCwiaWF0IjoxNzYwMTAzMjc0fQ.0qEbqwuQw1dlA6MAiUMnAlJarAyJOS8z1G2TSpyVhAE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/collections/count",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"collections",
+						"count"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/collections/count",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"collections",
+								"count"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 10 Oct 2025 14:44:44 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"counts\": {\n            \"TO_READ\": 0,\n            \"IN_PROGRESS\": 1,\n            \"DONE\": 0\n        }\n    },\n    \"error\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "루트 카테고리 보여주기",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJzaXllb24xQGVtYWlsLmNvbSIsImV4cCI6MTc2MDM2Njk1NCwiaWF0IjoxNzYwMzU5NzU0fQ.IrAHiqOD3WaFoat2f5lecJzBRrlPQn6II4qkJc_pcNo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/categories/root?level=root&withCounts=true&page=0&size=50&sort=code,asc",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"categories",
+						"root"
+					],
+					"query": [
+						{
+							"key": "level",
+							"value": "root"
+						},
+						{
+							"key": "withCounts",
+							"value": "true"
+						},
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "50"
+						},
+						{
+							"key": "sort",
+							"value": "code,asc"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/categories/root?level=root&withCounts=true&page=0&size=50&sort=code,asc",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"categories",
+								"root"
+							],
+							"query": [
+								{
+									"key": "level",
+									"value": "root"
+								},
+								{
+									"key": "withCounts",
+									"value": "true"
+								},
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "50"
+								},
+								{
+									"key": "sort",
+									"value": "code,asc"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 13 Oct 2025 14:40:43 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"content\": [\n            {\n                \"code\": \"cs\",\n                \"name\": \"cs\",\n                \"paperCount\": 4,\n                \"childrenCount\": 3\n            }\n        ],\n        \"pageable\": {\n            \"pageNumber\": 0,\n            \"pageSize\": 50,\n            \"sort\": {\n                \"empty\": false,\n                \"sorted\": true,\n                \"unsorted\": false\n            },\n            \"offset\": 0,\n            \"paged\": true,\n            \"unpaged\": false\n        },\n        \"last\": true,\n        \"totalElements\": 1,\n        \"totalPages\": 1,\n        \"first\": true,\n        \"size\": 50,\n        \"number\": 0,\n        \"sort\": {\n            \"empty\": false,\n            \"sorted\": true,\n            \"unsorted\": false\n        },\n        \"numberOfElements\": 1,\n        \"empty\": false\n    },\n    \"error\": null\n}"
+				},
+				{
+					"name": "루트 카테고리 보여주기",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/categories/root?level=root&withCounts=true&page=0&size=50&sort=code,asc",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"categories",
+								"root"
+							],
+							"query": [
+								{
+									"key": "level",
+									"value": "root"
+								},
+								{
+									"key": "withCounts",
+									"value": "true"
+								},
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "50"
+								},
+								{
+									"key": "sort",
+									"value": "code,asc"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 29 Oct 2025 16:09:02 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"content\": [\n            {\n                \"code\": \"math\",\n                \"name\": \"math\",\n                \"paperCount\": 0,\n                \"childrenCount\": 0\n            }\n        ],\n        \"pageable\": {\n            \"pageNumber\": 0,\n            \"pageSize\": 50,\n            \"sort\": {\n                \"empty\": false,\n                \"unsorted\": false,\n                \"sorted\": true\n            },\n            \"offset\": 0,\n            \"unpaged\": false,\n            \"paged\": true\n        },\n        \"last\": true,\n        \"totalElements\": 1,\n        \"totalPages\": 1,\n        \"first\": true,\n        \"size\": 50,\n        \"number\": 0,\n        \"sort\": {\n            \"empty\": false,\n            \"unsorted\": false,\n            \"sorted\": true\n        },\n        \"numberOfElements\": 1,\n        \"empty\": false\n    },\n    \"error\": null\n}"
+				},
+				{
+					"name": "루트 카테고리 보여주기",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/categories/root?level=root&withCounts=true&page=0&size=50&sort=code,asc",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"categories",
+								"root"
+							],
+							"query": [
+								{
+									"key": "level",
+									"value": "root"
+								},
+								{
+									"key": "withCounts",
+									"value": "true"
+								},
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "50"
+								},
+								{
+									"key": "sort",
+									"value": "code,asc"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 30 Oct 2025 00:51:57 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"content\": [\n            {\n                \"code\": \"cs\",\n                \"name\": \"cs\",\n                \"paperCount\": 0,\n                \"childrenCount\": 0\n            },\n            {\n                \"code\": \"math\",\n                \"name\": \"math\",\n                \"paperCount\": 0,\n                \"childrenCount\": 0\n            }\n        ],\n        \"pageable\": {\n            \"pageNumber\": 0,\n            \"pageSize\": 50,\n            \"sort\": {\n                \"empty\": false,\n                \"unsorted\": false,\n                \"sorted\": true\n            },\n            \"offset\": 0,\n            \"unpaged\": false,\n            \"paged\": true\n        },\n        \"last\": true,\n        \"totalElements\": 2,\n        \"totalPages\": 1,\n        \"first\": true,\n        \"size\": 50,\n        \"number\": 0,\n        \"sort\": {\n            \"empty\": false,\n            \"unsorted\": false,\n            \"sorted\": true\n        },\n        \"numberOfElements\": 2,\n        \"empty\": false\n    },\n    \"error\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "서브 카테고리 보여주기",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJzaXllb24xQGVtYWlsLmNvbSIsImV4cCI6MTc2MDM3NDkxNCwiaWF0IjoxNzYwMzY3NzE0fQ.gMkIw9SH9HbBG06s98tlhQYPjVmVOFT2-2p8wulp9DY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/categories/:code/children",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"categories",
+						":code",
+						"children"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0",
+							"disabled": true
+						},
+						{
+							"key": "size",
+							"value": "50",
+							"disabled": true
+						},
+						{
+							"key": "sort",
+							"value": "code,asc",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "code",
+							"value": "cs"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/categories/:code/children",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"categories",
+								":code",
+								"children"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "size",
+									"value": "50",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "code,asc",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "code",
+									"value": "cs"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 13 Oct 2025 15:29:23 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"content\": [\n            {\n                \"code\": \"cs.AI\",\n                \"name\": \"cs.AI\"\n            },\n            {\n                \"code\": \"cs.CL\",\n                \"name\": \"cs.CL\"\n            },\n            {\n                \"code\": \"cs.LG\",\n                \"name\": \"cs.LG\"\n            }\n        ],\n        \"pageable\": {\n            \"pageNumber\": 0,\n            \"pageSize\": 100,\n            \"sort\": {\n                \"empty\": true,\n                \"sorted\": false,\n                \"unsorted\": true\n            },\n            \"offset\": 0,\n            \"paged\": true,\n            \"unpaged\": false\n        },\n        \"last\": true,\n        \"totalElements\": 3,\n        \"totalPages\": 1,\n        \"first\": true,\n        \"size\": 100,\n        \"number\": 0,\n        \"sort\": {\n            \"empty\": true,\n            \"sorted\": false,\n            \"unsorted\": true\n        },\n        \"numberOfElements\": 3,\n        \"empty\": false\n    },\n    \"error\": null\n}"
+				},
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/categories/:code/children",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"categories",
+								":code",
+								"children"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "size",
+									"value": "50",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "code,asc",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "code",
+									"value": "math"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 29 Oct 2025 16:09:23 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"content\": [\n            {\n                \"code\": \"math.DS\",\n                \"name\": \"math.DS\",\n                \"paperCount\": 1,\n                \"childrenCount\": 0\n            }\n        ],\n        \"pageable\": {\n            \"pageNumber\": 0,\n            \"pageSize\": 100,\n            \"sort\": {\n                \"empty\": true,\n                \"unsorted\": true,\n                \"sorted\": false\n            },\n            \"offset\": 0,\n            \"unpaged\": false,\n            \"paged\": true\n        },\n        \"last\": true,\n        \"totalElements\": 1,\n        \"totalPages\": 1,\n        \"first\": true,\n        \"size\": 100,\n        \"number\": 0,\n        \"sort\": {\n            \"empty\": true,\n            \"unsorted\": true,\n            \"sorted\": false\n        },\n        \"numberOfElements\": 1,\n        \"empty\": false\n    },\n    \"error\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "카테고리 논문 보여주기",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJzaXllb24xQGVtYWlsLmNvbSIsImV4cCI6MTc2MDM3NDkxNCwiaWF0IjoxNzYwMzY3NzE0fQ.gMkIw9SH9HbBG06s98tlhQYPjVmVOFT2-2p8wulp9DY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/categories/:code/papers?rollup=false",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"categories",
+						":code",
+						"papers"
+					],
+					"query": [
+						{
+							"key": "rollup",
+							"value": "false"
+						},
+						{
+							"key": "page",
+							"value": "0",
+							"disabled": true
+						},
+						{
+							"key": "size",
+							"value": "50",
+							"disabled": true
+						},
+						{
+							"key": "sort",
+							"value": "code,asc",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "code",
+							"value": "cs.AI"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/categories/:code/papers?rollup=true",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"categories",
+								":code",
+								"papers"
+							],
+							"query": [
+								{
+									"key": "rollup",
+									"value": "true"
+								},
+								{
+									"key": "page",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "size",
+									"value": "50",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "code,asc",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "code",
+									"value": "cs"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 13 Oct 2025 15:57:00 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"content\": [\n            {\n                \"id\": 1,\n                \"title\": \"Attention Is All You Need\",\n                \"arxivId\": \"1706.03763\",\n                \"abstractText\": \"We propose the Transformer, a new simple network architecture...\",\n                \"authors\": \"[\\\"Ashish Vaswani\\\", \\\"Noam Shazeer\\\", \\\"Niki Parmar\\\", \\\"Jakob Uszkoreit\\\"]\",\n                \"publishedDate\": \"2017-06-01\",\n                \"primaryCategory\": \"cs.CL\"\n            },\n            {\n                \"id\": 4,\n                \"title\": \"Attention Is All You Need\",\n                \"arxivId\": \"1706.03762\",\n                \"abstractText\": \"We propose the Transformer, a new simple network architecture...\",\n                \"authors\": \"[\\\"Ashish Vaswani\\\", \\\"Noam Shazeer\\\", \\\"Niki Parmar\\\", \\\"Jakob Uszkoreit\\\"]\",\n                \"publishedDate\": \"2017-06-01\",\n                \"primaryCategory\": \"cs.CL\"\n            },\n            {\n                \"id\": 6,\n                \"title\": \"Attention Is All You Need\",\n                \"arxivId\": \"2501.03762\",\n                \"abstractText\": \"We propose the Transformer, a new simple network architecture...\",\n                \"authors\": \"[\\\"Ashish Vaswani\\\", \\\"Noam Shazeer\\\", \\\"Niki Parmar\\\", \\\"Jakob Uszkoreit\\\"]\",\n                \"publishedDate\": \"2017-06-01\",\n                \"primaryCategory\": \"cs.AI\"\n            },\n            {\n                \"id\": 16,\n                \"title\": \"Attention Is All You Need\",\n                \"arxivId\": \"2509.11104\",\n                \"abstractText\": \"We propose the Transformer, a new simple network architecture...\",\n                \"authors\": \"[\\\"Ashish Vaswani\\\", \\\"Noam Shazeer\\\", \\\"Niki Parmar\\\", \\\"Jakob Uszkoreit\\\"]\",\n                \"publishedDate\": \"2017-06-01\",\n                \"primaryCategory\": \"cs.AI\"\n            }\n        ],\n        \"pageable\": {\n            \"pageNumber\": 0,\n            \"pageSize\": 50,\n            \"sort\": {\n                \"empty\": true,\n                \"sorted\": false,\n                \"unsorted\": true\n            },\n            \"offset\": 0,\n            \"paged\": true,\n            \"unpaged\": false\n        },\n        \"last\": true,\n        \"totalElements\": 4,\n        \"totalPages\": 1,\n        \"first\": true,\n        \"size\": 50,\n        \"number\": 0,\n        \"sort\": {\n            \"empty\": true,\n            \"sorted\": false,\n            \"unsorted\": true\n        },\n        \"numberOfElements\": 4,\n        \"empty\": false\n    },\n    \"error\": null\n}"
+				},
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/categories/:code/papers?rollup=false",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"categories",
+								":code",
+								"papers"
+							],
+							"query": [
+								{
+									"key": "rollup",
+									"value": "false"
+								},
+								{
+									"key": "page",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "size",
+									"value": "50",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "code,asc",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "code",
+									"value": "cs.AI"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 13 Oct 2025 16:04:49 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"content\": [\n            {\n                \"id\": 6,\n                \"title\": \"Attention Is All You Need\",\n                \"arxivId\": \"2501.03762\",\n                \"abstractText\": \"We propose the Transformer, a new simple network architecture...\",\n                \"authors\": \"[\\\"Ashish Vaswani\\\", \\\"Noam Shazeer\\\", \\\"Niki Parmar\\\", \\\"Jakob Uszkoreit\\\"]\",\n                \"publishedDate\": \"2017-06-01\",\n                \"primaryCategory\": \"cs.AI\"\n            },\n            {\n                \"id\": 16,\n                \"title\": \"Attention Is All You Need\",\n                \"arxivId\": \"2509.11104\",\n                \"abstractText\": \"We propose the Transformer, a new simple network architecture...\",\n                \"authors\": \"[\\\"Ashish Vaswani\\\", \\\"Noam Shazeer\\\", \\\"Niki Parmar\\\", \\\"Jakob Uszkoreit\\\"]\",\n                \"publishedDate\": \"2017-06-01\",\n                \"primaryCategory\": \"cs.AI\"\n            }\n        ],\n        \"pageable\": {\n            \"pageNumber\": 0,\n            \"pageSize\": 50,\n            \"sort\": {\n                \"empty\": true,\n                \"sorted\": false,\n                \"unsorted\": true\n            },\n            \"offset\": 0,\n            \"paged\": true,\n            \"unpaged\": false\n        },\n        \"last\": true,\n        \"totalElements\": 2,\n        \"totalPages\": 1,\n        \"first\": true,\n        \"size\": 50,\n        \"number\": 0,\n        \"sort\": {\n            \"empty\": true,\n            \"sorted\": false,\n            \"unsorted\": true\n        },\n        \"numberOfElements\": 2,\n        \"empty\": false\n    },\n    \"error\": null\n}"
+				},
+				{
+					"name": "카테고리 논문 보여주기",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/categories/:code/papers?rollup=false",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"categories",
+								":code",
+								"papers"
+							],
+							"query": [
+								{
+									"key": "rollup",
+									"value": "false"
+								},
+								{
+									"key": "page",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "size",
+									"value": "50",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "code,asc",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "code",
+									"value": "math"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 29 Oct 2025 16:09:49 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"content\": [\n            {\n                \"id\": 8,\n                \"title\": \"The typical measure preserving transformation is not an interval exchange transformation\",\n                \"arxivId\": \"1812.10425v1\",\n                \"abstractText\": \"We show that the typical measure preserving transformation is not isomorphic\\nto any interval exchange transformation.\",\n                \"authors\": \"[\\\"Jon Chaika\\\", \\\"Diana Davis\\\"]\",\n                \"publishedDate\": \"2018-12-26\",\n                \"primaryCategory\": \"math.DS\"\n            }\n        ],\n        \"pageable\": {\n            \"pageNumber\": 0,\n            \"pageSize\": 50,\n            \"sort\": {\n                \"empty\": true,\n                \"unsorted\": true,\n                \"sorted\": false\n            },\n            \"offset\": 0,\n            \"unpaged\": false,\n            \"paged\": true\n        },\n        \"last\": true,\n        \"totalElements\": 1,\n        \"totalPages\": 1,\n        \"first\": true,\n        \"size\": 50,\n        \"number\": 0,\n        \"sort\": {\n            \"empty\": true,\n            \"unsorted\": true,\n            \"sorted\": false\n        },\n        \"numberOfElements\": 1,\n        \"empty\": false\n    },\n    \"error\": null\n}"
+				},
+				{
+					"name": "카테고리 논문 보여주기",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/categories/:code/papers?rollup=false",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"categories",
+								":code",
+								"papers"
+							],
+							"query": [
+								{
+									"key": "rollup",
+									"value": "false"
+								},
+								{
+									"key": "page",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "size",
+									"value": "50",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "code,asc",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "code",
+									"value": "cs"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 30 Oct 2025 00:52:50 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"content\": [\n            {\n                \"id\": 9,\n                \"title\": \"Diversity Preference-Aware Link Recommendation for Online Social Networks\",\n                \"arxivId\": \"2205.10689v2\",\n                \"abstractText\": \"Link recommendation, which recommends links to connect unlinked online social\\nnetwork users, is a fundamental social network analytics problem with ample\\nbusiness implications. Existing link recommendation methods tend to recommend\\nsimilar friends to a user but overlook the user's diversity preference,\\nalthough social psychology theories suggest the criticality of diversity\\npreference to link recommendation performance. In recommender systems, a field\\nrelated to link recommendation, a number of diversification methods have been\\nproposed to improve the diversity of recommended items. Nevertheless, diversity\\npreference is distinct from diversity studied by diversification methods. To\\naddress these research gaps, we define and operationalize the concept of\\ndiversity preference for link recommendation and propose a new link\\nrecommendation problem: the diversity preference-aware link recommendation\\nproblem. We then analyze key properties of the new link recommendation problem\\nand develop a novel link recommendation method to solve the problem. Using two\\nlarge-scale online social network data sets, we conduct extensive empirical\\nevaluations to demonstrate the superior performance of our method over\\nrepresentative diversification methods adapted for link recommendation as well\\nas state-of-the-art link recommendation methods.\",\n                \"authors\": \"[\\\"Kexin Yin\\\", \\\"Xiao Fang\\\", \\\"Bintong Chen\\\", \\\"Olivia Sheng\\\"]\",\n                \"publishedDate\": \"2022-05-21\",\n                \"primaryCategory\": \"cs.LG\"\n            }\n        ],\n        \"pageable\": {\n            \"pageNumber\": 0,\n            \"pageSize\": 50,\n            \"sort\": {\n                \"empty\": true,\n                \"unsorted\": true,\n                \"sorted\": false\n            },\n            \"offset\": 0,\n            \"unpaged\": false,\n            \"paged\": true\n        },\n        \"last\": true,\n        \"totalElements\": 1,\n        \"totalPages\": 1,\n        \"first\": true,\n        \"size\": 50,\n        \"number\": 0,\n        \"sort\": {\n            \"empty\": true,\n            \"unsorted\": true,\n            \"sorted\": false\n        },\n        \"numberOfElements\": 1,\n        \"empty\": false\n    },\n    \"error\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "전체 논문 추천",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJzaXllb24yQGVtYWlsLmNvbSIsImV4cCI6MTc2MTc1NTYyNywiaWF0IjoxNzYxNzQ4NDI3fQ.1gHREmTHvFiNC5g1o7yYnnv7ENNQgL8fLMgABNxGm5E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/recommendations/similar/:arXivId",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"recommendations",
+						"similar",
+						":arXivId"
+					],
+					"variable": [
+						{
+							"key": "arXivId",
+							"value": "2510.05057v1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/recommendations/similar/:arXivId",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"recommendations",
+								"similar",
+								":arXivId"
+							],
+							"variable": [
+								{
+									"key": "arXivId",
+									"value": "2510.05057v1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Disposition",
+							"value": "inline;filename=f.txt"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 29 Oct 2025 14:40:11 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"arxivId\": \"2510.05070v1\",\n            \"title\": \"ResMimic: From General Motion Tracking to Humanoid Whole-body Loco-Manipulation via Residual Learning\",\n            \"authors\": [\n                \"Siheng Zhao\",\n                \"Yanjie Ze\",\n                \"Yue Wang\",\n                \"C. Karen Liu\",\n                \"Pieter Abbeel\",\n                \"Guanya Shi\",\n                \"Rocky Duan\"\n            ],\n            \"keywords\": [\n                \"humanoid\",\n                \"object\",\n                \"manipulation\",\n                \"policy\",\n                \"motion\",\n                \"contact\",\n                \"gmt\",\n                \"tracking\",\n                \"residual\",\n                \"body\"\n            ],\n            \"published\": \"2025-10-06\",\n            \"score\": 0.64118576\n        },\n        {\n            \"arxivId\": \"2510.05097v1\",\n            \"title\": \"Pulp Motion: Framing-aware multimodal camera and human motion generation\",\n            \"authors\": [\n                \"Robin Courant\",\n                \"Xi Wang\",\n                \"David Loiseaux\",\n                \"Marc Christie\",\n                \"Vicky Kalogeiton\"\n            ],\n            \"keywords\": [\n                \"camera\",\n                \"framing\",\n                \"modality\",\n                \"motion\",\n                \"et\",\n                \"et al\",\n                \"fd\",\n                \"tmr\",\n                \"clatr\",\n                \"human\"\n            ],\n            \"published\": \"2025-10-06\",\n            \"score\": 0.621165335\n        },\n        {\n            \"arxivId\": \"2510.05059v1\",\n            \"title\": \"Staircase Streaming for Low-Latency Multi-Agent Inference\",\n            \"authors\": [\n                \"Junlin Wang\",\n                \"Jue Wang\",\n                \"Zhen\",\n                \"Xu\",\n                \"Ben Athiwaratkun\",\n                \"Bhuwan Dhingra\",\n                \"Ce Zhang\",\n                \"James Zou\"\n            ],\n            \"keywords\": [\n                \"chunk\",\n                \"staircase\",\n                \"streaming\",\n                \"et\",\n                \"et al\",\n                \"multi agent\",\n                \"agent\",\n                \"inference\",\n                \"arxiv\",\n                \"response\"\n            ],\n            \"published\": \"2025-10-06\",\n            \"score\": 0.573120117\n        },\n        {\n            \"arxivId\": \"2510.05094v1\",\n            \"title\": \"VChain: Chain-of-Visual-Thought for Reasoning in Video Generation\",\n            \"authors\": [\n                \"Ziqi Huang\",\n                \"Ning Yu\",\n                \"Gordon Chen\",\n                \"Haonan Qiu\",\n                \"Paul Debevec\",\n                \"Ziwei Liu\"\n            ],\n            \"keywords\": [\n                \"video\",\n                \"vchain\",\n                \"prompt\",\n                \"visual\",\n                \"water\",\n                \"thoughts\",\n                \"ice\",\n                \"image\",\n                \"sparse\",\n                \"reasoning\"\n            ],\n            \"published\": \"2025-10-06\",\n            \"score\": 0.546976149\n        },\n        {\n            \"arxivId\": \"2510.05091v1\",\n            \"title\": \"Factuality Matters: When Image Generation and Editing Meet Structured Visuals\",\n            \"authors\": [\n                \"Le Zhuo\",\n                \"Songhao Han\",\n                \"Yuandong Pu\",\n                \"Boxiang Qiu\",\n                \"Sayak Paul\",\n                \"Yue Liao\",\n                \"Yihao Liu\",\n                \"Jie Shao\",\n                \"Xi Chen\",\n                \"Si Liu\"\n            ],\n            \"keywords\": [\n                \"image\",\n                \"editing\",\n                \"et\",\n                \"et al\",\n                \"image editing\",\n                \"arxiv\",\n                \"preprint\",\n                \"images\",\n                \"structured\",\n                \"gpt\"\n            ],\n            \"published\": \"2025-10-06\",\n            \"score\": 0.523435593\n        },\n        {\n            \"arxivId\": \"2510.05061v1\",\n            \"title\": \"Automaton Constrained Q-Learning\",\n            \"authors\": [\n                \"Anastasios Manganaris\",\n                \"Vittorio Giammarino\",\n                \"Ahmed H. Qureshi\"\n            ],\n            \"keywords\": [\n                \"ltl\",\n                \"safety\",\n                \"learning\",\n                \"reward\",\n                \"task\",\n                \"policy\",\n                \"constraints\",\n                \"reinforcement\",\n                \"reinforcement learning\",\n                \"pages\"\n            ],\n            \"published\": \"2025-10-06\",\n            \"score\": 0.516673148\n        },\n        {\n            \"arxivId\": \"2510.05096v1\",\n            \"title\": \"Paper2Video: Automatic Video Generation from Scientific Papers\",\n            \"authors\": [\n                \"Zeyu Zhu\",\n                \"Kevin Qinghong Lin\",\n                \"Mike Zheng Shou\"\n            ],\n            \"keywords\": [\n                \"slide\",\n                \"video\",\n                \"slides\",\n                \"presentation\",\n                \"cursor\",\n                \"videos\",\n                \"generation\",\n                \"video generation\",\n                \"academic\",\n                \"preprint\"\n            ],\n            \"published\": \"2025-10-06\",\n            \"score\": 0.485933304\n        },\n        {\n            \"arxivId\": \"2510.05100v1\",\n            \"title\": \"Rapid event extraction and tensorial event adaption: Libraries for efficient access and generic reweighting of parton-level events and their implementation in the MadtRex module\",\n            \"authors\": [\n                \"Stefan Roiser\",\n                \"Robert Schöfbeck\",\n                \"Zenny Wettersten\"\n            ],\n            \"keywords\": [\n                \"event\",\n                \"reweighting\",\n                \"lhe\",\n                \"std\",\n                \"events\",\n                \"rex\",\n                \"vector\",\n                \"generic\",\n                \"parton\",\n                \"const\"\n            ],\n            \"published\": \"2025-10-06\",\n            \"score\": 0.462648332\n        },\n        {\n            \"arxivId\": \"2510.05090v1\",\n            \"title\": \"Finish First, Perfect Later: Test-Time Token-Level Cross-Validation for Diffusion Large Language Models\",\n            \"authors\": [\n                \"Runchu Tian\",\n                \"Junxia Cui\",\n                \"Xueqiang Xu\",\n                \"Feng Yao\",\n                \"Jingbo Shang\"\n            ],\n            \"keywords\": [\n                \"et al\",\n                \"et\",\n                \"diffusion\",\n                \"decoding\",\n                \"refinement\",\n                \"tokens\",\n                \"al 2025\",\n                \"et al 2025\",\n                \"language\",\n                \"language models\"\n            ],\n            \"published\": \"2025-10-06\",\n            \"score\": 0.455869675\n        },\n        {\n            \"arxivId\": \"2510.05081v1\",\n            \"title\": \"SAEdit: Token-level control for continuous image editing via Sparse AutoEncoder\",\n            \"authors\": [\n                \"Ronen Kamenetsky\",\n                \"Sara Dorfman\",\n                \"Daniel Garibi\",\n                \"Roni Paiss\",\n                \"Or Patashnik\",\n                \"Daniel Cohen-Or\"\n            ],\n            \"keywords\": [\n                \"image\",\n                \"edit\",\n                \"smiling\",\n                \"original image\",\n                \"edits\",\n                \"editing\",\n                \"sparse\",\n                \"text\",\n                \"flux\",\n                \"person\"\n            ],\n            \"published\": \"2025-10-06\",\n            \"score\": 0.441727668\n        }\n    ],\n    \"error\": null\n}"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
